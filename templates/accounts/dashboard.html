@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+<div class="dashboard-container">
+    <h1>👤 مرحبًا {{ request.user.username }}</h1>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>📋 مهامي</h3>
+            <p>عدد المهام الحالية: {{ tasks_count }}</p>
+            <a href="{% url 'tasks:task_list' %}" class="btn">عرض المهام</a>
+        </div>
+
+        <div class="card">
+            <h3>➕ إضافة مهمة</h3>
+            <p>قم بإضافة مهمة جديدة إلى قائمتك.</p>
+            <a href="{% url 'tasks:task_create' %}" class="btn">مهمة جديدة</a>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ الإعدادات</h3>
+            <p>تعديل الملف الشخصي وتسجيل الخروج.</p>
+            <a href="{% url 'accounts:profile' %}" class="btn">الملف الشخصي</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

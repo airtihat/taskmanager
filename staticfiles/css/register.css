@@ -1,0 +1,59 @@
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+}
+
+.register-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 35px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.07);
+}
+
+.register-container h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.register-container label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.register-container button {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.register-container button:hover {
+    background-color: #0056b3;
+}

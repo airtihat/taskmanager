@@ -1,0 +1,8 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h2>📧 إرسال تذكير إلى بريدك</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn">إرسال التذكير الآن</button>
+</form>
+{% endblock %}

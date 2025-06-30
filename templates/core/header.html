@@ -1,0 +1,68 @@
+<!-- templates/includes/header.html -->
+<header class="bg-dark text-white p-3 shadow-sm">
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <!-- عنوان الموقع -->
+    <div class="d-flex align-items-center">
+      <i class="fas fa-tasks me-2"></i>
+      <h1 class="h5 m-0">نظام إدارة المهام المتقدم</h1>
+    </div>
+
+    <!-- قائمة التنقل -->
+    <nav class="d-flex align-items-center">
+      {% if user.is_authenticated %}
+
+        <!-- الرئيسية -->
+        <a href="{% url 'home' %}" class="text-white me-3 text-decoration-none hover-primary">
+          <i class="fas fa-home me-1"></i> الرئيسية
+        </a>
+
+        <!-- المستخدمين -->
+        {% if user.is_staff %}
+        <a href="{% url 'accounts:user_list' %}" class="text-white me-3 text-decoration-none hover-primary">
+          <i class="fas fa-user-shield me-1"></i> المستخدمين
+        </a>
+        {% endif %}
+
+        <!-- المهام -->
+        <a href="{% url 'tasks:task_list' %}" class="text-white me-3 text-decoration-none hover-primary">
+          <i class="fas fa-tasks me-1"></i> المهام
+        </a>
+
+        <!-- التقارير (مدير فقط) -->
+        {% if user.is_staff %}
+        <a href="{% url 'reports:report_dashboard' %}" class="text-white me-3 text-decoration-none hover-primary">
+          <i class="fas fa-chart-bar me-1"></i> التقارير
+        </a>
+        {% endif %}
+
+        <!-- الإعدادات -->
+        {% if user.is_staff %}
+        <a href="{% url 'management:settings' %}" class="text-white me-3 text-decoration-none hover-primary">
+          <i class="fas fa-cogs me-1"></i> الإعدادات
+        </a>
+        {% endif %}
+
+        <!-- زر الخروج -->
+        <form action="{% url 'logout' %}" method="post" class="d-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-link text-white me-2 p-0" style="text-decoration: none;">
+            <i class="fas fa-sign-out-alt me-1"></i> خروج
+          </button>
+        </form>
+
+{% else %}
+  <!-- الدخول -->
+  <a href="{% url 'login' %}" class="text-white me-3 text-decoration-none hover-primary">
+    <i class="fas fa-sign-in-alt me-1"></i> دخول
+  </a>
+
+  <!-- التسجيل -->
+  <a href="{% url 'accounts:register' %}" class="text-white text-decoration-none hover-primary">
+    <i class="fas fa-user-plus me-1"></i> تسجيل
+  </a>
+{% endif %}
+
+    </nav>
+  </div>
+</header>

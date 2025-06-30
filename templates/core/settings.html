@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}إعدادات النظام{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">⚙️ إعدادات النظام</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="siteName" class="form-label">اسم النظام</label>
+      <input type="text" class="form-control" id="siteName" name="site_name" placeholder="مثال: نظام إدارة المهام">
+    </div>
+
+    <div class="mb-3">
+      <label for="timezone" class="form-label">المنطقة الزمنية</label>
+      <select class="form-select" id="timezone" name="timezone">
+        <option value="Asia/Riyadh">الرياض</option>
+        <option value="Asia/Dubai">دبي</option>
+        <option value="UTC">UTC</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="language" class="form-label">اللغة</label>
+      <select class="form-select" id="language" name="language">
+        <option value="ar">العربية</option>
+        <option value="en">الإنجليزية</option>
+      </select>
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" value="1" id="notifications" name="notifications">
+      <label class="form-check-label" for="notifications">
+        تفعيل الإشعارات
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">💾 حفظ التغييرات</button>
+  </form>
+</div>
+{% endblock %}

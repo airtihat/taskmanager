@@ -1,0 +1,32 @@
+{% load static %}
+
+{% block title %}قائمة المهام{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="task-list-container">
+  <h2 class="task-list-title">--- 📋 قائمة المهام ---</h2>
+
+  <ul class="task-list">
+    {% for task in tasks %}
+    <li class="task-item">
+      <div class="task-content">
+        <strong class="task-title">{{ task.title }}</strong>
+        <div class="task-actions">
+          <a href="{% url 'tasks:task_edit' task.id %}" class="edit-btn">تعديل</a>
+          <form method="post" action="{% url 'tasks:task_delete' task.id %}" class="delete-form">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">حذف</button>
+          </form>
+        </div>
+      </div>
+    </li>
+    {% empty %}
+    <li class="task-empty">لا توجد مهام حالياً.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

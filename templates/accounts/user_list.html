@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>قائمة المستخدمين</title>
+</head>
+<body>
+  <h1>قائمة المستخدمين</h1>
+  <ul>
+    {% for user in users %}
+      <li>{{ user.username }} - {{ user.email }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,16 +1,18 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>المهام المتأخرة</title>
+    <title>{% trans "المهام المتأخرة" %}</title>
 </head>
 <body>
-    <h1>⏰ قائمة المهام المتأخرة</h1>
+    <h1>⏰ {% trans "قائمة المهام المتأخرة" %}</h1>
     <ul>
         {% for task in tasks %}
-            <li>{{ task.title }} - التاريخ المطلوب: {{ task.due_date }}</li>
+            <li>{{ task.title }} - {% trans "التاريخ المطلوب" %}: {{ task.due_date }}</li>
         {% empty %}
-            <li>لا توجد مهام متأخرة حالياً</li>
+            <li>{% trans "لا توجد مهام متأخرة حالياً" %}</li>
         {% endfor %}
     </ul>
 </body>

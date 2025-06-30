@@ -1,30 +1,47 @@
-{% load static %}
+{% load static i18n %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "لوحة التحكم" %} | {% trans "نظام المهام" %}</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
 
-<div class="dashboard-container">
-    <h1>👤 مرحبًا {{ request.user.username }}</h1>
+  {% include 'core/header.html' %}
 
-    <div class="dashboard-cards">
-        <div class="card">
-            <h3>📋 مهامي</h3>
-            <p>عدد المهام الحالية: {{ tasks_count }}</p>
-            <a href="{% url 'tasks:task_list' %}" class="btn">عرض المهام</a>
-        </div>
+  <div class="dashboard-container">
 
-        <div class="card">
-            <h3>➕ إضافة مهمة</h3>
-            <p>قم بإضافة مهمة جديدة إلى قائمتك.</p>
-            <a href="{% url 'tasks:task_create' %}" class="btn">مهمة جديدة</a>
-        </div>
+    <h2>{% trans "لوحة التحكم" %}</h2>
 
-        <div class="card">
-            <h3>⚙️ الإعدادات</h3>
-            <p>تعديل الملف الشخصي وتسجيل الخروج.</p>
-            <a href="{% url 'accounts:profile' %}" class="btn">الملف الشخصي</a>
-        </div>
+    <div class="dashboard-row">
+
+      <!-- بطاقة المهام -->
+      <div class="dashboard-card">
+        <h3>📝 {% trans "المهام" %}</h3>
+        <p>{% trans "عرض وإنشاء المهام الخاصة بك." %}</p>
+        <a href="{% url 'tasks:task_list' %}" class="btn btn-primary">{% trans "قائمة المهام" %}</a>
+        <a href="{% url 'tasks:task_create' %}" class="btn btn-success">{% trans "مهمة جديدة" %}</a>
+      </div>
+
+      <!-- بطاقة الإعدادات -->
+      <div class="dashboard-card">
+        <h3>⚙️ {% trans "الإعدادات" %}</h3>
+        <p>{% trans "تعديل الملف الشخصي وتسجيل الخروج." %}</p>
+        <a href="{% url 'accounts:profile' %}" class="btn btn-warning">{% trans "الملف الشخصي" %}</a>
+        <a href="{% url 'logout' %}" class="btn btn-danger">{% trans "تسجيل الخروج" %}</a>
+      </div>
+
     </div>
-</div>
-{% endblock %}
+  </div>
+
+  {% include 'core/footer.html' %}
+
+</body>
+</html>
+
+

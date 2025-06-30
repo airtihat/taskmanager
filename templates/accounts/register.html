@@ -1,10 +1,11 @@
-{% load static %}
+{% load static i18n %}
+
 <link rel="stylesheet" href="{% static 'css/[اسم_الملف].css' %}">
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>إنشاء حساب</title>
+  <title>{% trans "إنشاء حساب" %}</title>
   <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
@@ -12,36 +13,36 @@
 {% include 'core/header.html' %}
 
 <div class="register-container">
-  <h2>إنشاء حساب جديد</h2>
+  <h2>{% trans "إنشاء حساب جديد" %}</h2>
   <form method="post">
     {% csrf_token %}
 
     <div class="form-group">
-      <label for="id_username">اسم المستخدم</label>
+      <label for="id_username">{% trans "اسم المستخدم" %}</label>
       {{ form.username }}
     </div>
 
     <div class="form-group">
-      <label for="id_email">البريد الإلكتروني</label>
+      <label for="id_email">{% trans "البريد الإلكتروني" %}</label>
       {{ form.email }}
     </div>
 
     <div class="form-group">
-      <label for="id_phone_number">رقم الجوال</label>
+      <label for="id_phone_number">{% trans "رقم الجوال" %}</label>
       {{ form.phone_number }}
     </div>
 
     <div class="form-group">
-      <label for="id_password1">كلمة المرور</label>
+      <label for="id_password1">{% trans "كلمة المرور" %}</label>
       {{ form.password1 }}
     </div>
 
     <div class="form-group">
-      <label for="id_password2">تأكيد كلمة المرور</label>
+      <label for="id_password2">{% trans "تأكيد كلمة المرور" %}</label>
       {{ form.password2 }}
     </div>
 
-    <button type="submit">تسجيل</button>
+    <button type="submit">{% trans "تسجيل" %}</button>
   </form>
 </div>
 

@@ -1,7 +1,15 @@
-{% extends "base.html" %}
+{% load i18n %}
 {% block content %}
+
   <div class="alert alert-success text-center mt-5">
-    <h4>تم تسجيل الخروج بنجاح</h4>
-    <a href="{% url 'login' %}" class="btn btn-primary mt-3">تسجيل الدخول مجددًا</a>
+    <h4>{% trans "تم تسجيل الخروج بنجاح" %}</h4>
+    <a href="{% url 'login' %}" class="btn btn-primary mt-3">{% trans "تسجيل الدخول مجددًا" %}</a>
   </div>
+
+  <!-- نموذج الخروج -->
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger mt-3">{% trans "تسجيل الخروج" %}</button>
+  </form>
+
 {% endblock %}

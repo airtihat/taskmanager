@@ -1,32 +1,50 @@
-{% load static %}
+{% load static i18n %}
 
-{% block title %}قائمة المهام{% endblock %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "قائمة المهام" %}</title>
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/task_list.css' %}">
-{% endblock %}
+  <!-- ربط ملف التنسيق الخارجي -->
+  <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
 
-{% block content %}
-<section class="task-list-container">
-  <h2 class="task-list-title">--- 📋 قائمة المهام ---</h2>
+  <!-- الهيدر -->
+  {% include 'core/header.html' %}
 
-  <ul class="task-list">
-    {% for task in tasks %}
-    <li class="task-item">
-      <div class="task-content">
-        <strong class="task-title">{{ task.title }}</strong>
-        <div class="task-actions">
-          <a href="{% url 'tasks:task_edit' task.id %}" class="edit-btn">تعديل</a>
-          <form method="post" action="{% url 'tasks:task_delete' task.id %}" class="delete-form">
-            {% csrf_token %}
-            <button type="submit" class="delete-btn">حذف</button>
-          </form>
-        </div>
-      </div>
-    </li>
-    {% empty %}
-    <li class="task-empty">لا توجد مهام حالياً.</li>
-    {% endfor %}
-  </ul>
-</section>
-{% endblock %}
+  <!-- المحتوى -->
+  <main>
+    <section class="task-list-container">
+      <h2 class="task-list-title">--- <i class="fas fa-clipboard-list"></i> {% trans "قائمة المهام" %} ---</h2>
+
+      <ul class="task-list">
+        {% for task in tasks %}
+        <li class="task-item">
+          <div class="task-content">
+            <div class="task-title">{{ task.title }}</div>
+            <div class="task-actions">
+              <a href="{% url 'tasks:task_edit' task.id %}" class="edit-btn">{% trans "تعديل" %}</a>
+              <form method="post" action="{% url 'tasks:task_delete' task.id %}" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">{% trans "حذف" %}</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {% empty %}
+        <li class="task-empty">{% trans "لا توجد مهام حالياً." %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <!-- الفوتر -->
+  {% include 'core/footer.html' %}
+
+</body>
+</html>

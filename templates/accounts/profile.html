@@ -1,13 +1,19 @@
-{% extends 'tasks/base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}الملف الشخصي{% endblock %}
+{% block title %}{% trans "الملف الشخصي" %}{% endblock %}
 
 {% block content %}
 <div class="profile-container">
-    <h1>👤 الملف الشخصي</h1>
-    <p>اسم المستخدم: {{ request.user.username }}</p>
-    <p>البريد الإلكتروني: {{ request.user.email }}</p>
-    <a href="{% url 'logout' %}" class="btn">تسجيل الخروج</a>
+    <h1>👤 {% trans "الملف الشخصي" %}</h1>
+
+    <div class="profile-card">
+        <div class="profile-info">
+            <p>{% trans "اسم المستخدم" %}: {{ request.user.username }}</p>
+            <p>{% trans "البريد الإلكتروني" %}: {{ request.user.email }}</p>
+        </div>
+        <div class="profile-actions">
+            <a href="{% url 'logout' %}" class="btn danger">{% trans "تسجيل الخروج" %}</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

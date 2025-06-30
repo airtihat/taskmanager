@@ -1,0 +1,399 @@
+#. charset=UTF-8
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Header and metadata remains unchanged
+# All empty/whitespace msgid/msgstr pairs have been removed
+
+# Template files translations
+#: .\templates\accounts\manage_users.html:7
+msgid "      (  )."
+msgstr "      (User Management)."
+
+#: .\templates\accounts\reports.html:8
+msgid "     (  )."
+msgstr "     (Report Center)."
+
+#: .\templates\accounts\system_settings.html:8
+msgid "     (  )."
+msgstr "     (System Configuration)."
+
+#: .\templates\accounts\user_list.html:45 
+#: .\templates\tasks\task_list.html:40
+msgid "   ."
+msgstr "   More options."
+
+#: .\templates\core\footer.html:4
+msgid " 2025   "
+msgstr "© 2025 All Rights Reserved"
+
+#: .\templates\management\team_list.html:11
+msgid "     إدارة."
+msgstr "     Team Administration."
+
+# Django core translations
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "الرسائل"
+msgstr "Messages"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "خرائط الموقع"
+msgstr "Sitemaps"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "الملفات الثابتة"
+msgstr "Static Files"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "التلقيم"
+msgstr "Syndication"
+
+# Pagination
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid ""
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "رقم الصفحة يجب أن يكون رقماً صحيحاً"
+msgstr "Page number must be an integer"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "رقم الصفحة يجب أن يكون أكبر من أو يساوي 1"
+msgstr "Page number must be greater than or equal to 1"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "هذه الصفحة لا تحتوي على نتائج"
+msgstr "This page contains no results"
+
+# Validators
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "أدخل قيمة صالحة."
+msgstr "Enter a valid value."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "أدخل اسم نطاق صالح."
+msgstr "Enter a valid domain name."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "أدخل رابط URL صالح."
+msgstr "Enter a valid URL."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "أدخل عدداً صحيحاً صالحاً."
+msgstr "Enter a valid integer."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "أدخل عنوان بريد إلكتروني صالح."
+msgstr "Enter a valid email address."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid "أدخل slug صالحاً يتكون من حروف وأرقام وشرطات سفلية أو شرطات."
+msgstr "Enter a valid slug consisting of letters, numbers, underscores or hyphens."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid "أدخل slug صالحاً يتكون من حروف يونيكود وأرقام وشرطات سفلية أو شرطات."
+msgstr "Enter a valid slug consisting of Unicode letters, numbers, underscores, or hyphens."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "أدخل عنوان %(protocol)s صالح."
+msgstr "Enter a valid %(protocol)s address."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr "IPv4"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr "IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 أو IPv6"
+msgstr "IPv4 or IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "أدخل أرقاماً فقط مفصولة بفواصل."
+msgstr "Enter only digits separated by commas."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "تأكد أن هذه القيمة هي %(limit_value)s (القيمة الحالية هي %(show_value)s)."
+msgstr "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "تأكد أن هذه القيمة أقل من أو تساوي %(limit_value)s."
+msgstr "Ensure this value is less than or equal to %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "تأكد أن هذه القيمة أكبر من أو تساوي %(limit_value)s."
+msgstr "Ensure this value is greater than or equal to %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "تأكد أن هذه القيمة من مضاعفات حجم الخطوة %(limit_value)s."
+msgstr "Ensure this value is a multiple of step size %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid "تأكد أن هذه القيمة من مضاعفات حجم الخطوة %(limit_value)s، بدءاً من %(offset)s، مثل %(offset)s، %(valid_value1)s، %(valid_value2)s، وهكذا."
+msgstr "Ensure this value is a multiple of step size %(limit_value)s, starting from %(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid "تأكد أن هذه القيمة تحتوي على حرف واحد على الأقل (تحتوي حالياً على %(show_value)d)."
+msgstr "Ensure this value contains at least one character (it has %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:477
+#, python-format
+msgid "تأكد أن هذه القيمة تحتوي على %(limit_value)d أحرف على الأقل (تحتوي حالياً على %(show_value)d)."
+msgstr "Ensure this value contains at least %(limit_value)d characters (it has %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid "تأكد أن هذه القيمة تحتوي على حرف واحد كحد أقصى (تحتوي حالياً على %(show_value)d)."
+msgstr "Ensure this value contains at most one character (it has %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:495
+#, python-format
+msgid "تأكد أن هذه القيمة تحتوي على %(limit_value)d أحرف كحد أقصى (تحتوي حالياً على %(show_value)d)."
+msgstr "Ensure this value contains at most %(limit_value)d characters (it has %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "أدخل رقماً."
+msgstr "Enter a number."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "تأكد أن العدد الإجمالي للأرقام لا يتجاوز %(max)s."
+msgstr "Ensure that there are no more than %(max)s digits in total."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "تأكد أن عدد المنازل العشرية لا يتجاوز %(max)s."
+msgstr "Ensure that there are no more than %(max)s decimal places."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid "تأكد أن عدد الأرقام قبل الفاصلة العشرية لا يتجاوز %(max)s."
+msgstr "Ensure that there are no more than %(max)s digits before the decimal point."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid "امتداد الملف %(extension)s غير مسموح به. الامتدادات المسموح بها هي: %(allowed_extensions)s."
+msgstr "File extension '%(extension)s' is not allowed. Allowed extensions are: '%(allowed_extensions)s'."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "الأحرف الفارغة غير مسموح بها."
+msgstr "Blank characters are not allowed."
+
+# Database models
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "و"
+msgstr "and"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s بهذا %(field_labels)s موجود بالفعل."
+msgstr "%(model_name)s with this %(field_labels)s already exists."
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "تم انتهاك القيد %(name)s."
+msgstr "Constraint '%(name)s' is violated."
+
+# Model fields
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "القيمة %(value)r ليست خياراً صالحاً."
+msgstr "Value %(value)r is not a valid choice."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "هذا الحقل لا يمكن أن يكون فارغاً."
+msgstr "This field cannot be null."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "هذا الحقل لا يمكن أن يكون فارغاً."
+msgstr "This field cannot be blank."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s بهذا %(field_label)s موجود بالفعل."
+msgstr "%(model_name)s with this %(field_label)s already exists."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "حقل من النوع: %(field_type)s"
+msgstr "Field of type: %(field_type)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "%(value)s قيمة يجب أن تكون إما True أو False."
+msgstr "%(value)s must be either True or False."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "%(value)s يجب أن تكون إما True أو False أو None."
+msgstr "%(value)s must be either True, False, or None."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "منطقي (إما True أو False)"
+msgstr "Boolean (Either True or False)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "سلسلة نصية (حتى %(max_length)s)"
+msgstr "String (up to %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "سلسلة نصية (غير محدودة)"
+msgstr "String (unlimited)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "أعداد صحيحة مفصولة بفواصل"
+msgstr "Comma-separated integers"
+
+# Date/time fields
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid "%(value)s قيمة لها تنسيق تاريخ غير صالح. يجب أن تكون بتنسيق YYYY-MM-DD."
+msgstr "%(value)s has an invalid date format. It must be in YYYY-MM-DD format."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid "%(value)s لها التنسيق الصحيح (YYYY-MM-DD) ولكنها تاريخ غير صالح."
+msgstr "%(value)s has the correct format (YYYY-MM-DD) but it is an invalid date."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "تاريخ (بدون وقت)"
+msgstr "Date (without time)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid "%(value)s لها تنسيق غير صالح. يجب أن تكون بتنسيق YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]."
+msgstr "%(value)s has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid "%(value)s لها التنسيق الصحيح (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]) ولكنها تاريخ/وقت غير صالح."
+msgstr "%(value)s has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "تاريخ (مع وقت)"
+msgstr "Date (with time)"
+
+# Numeric fields
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "%(value)s يجب أن تكون رقم عشري."
+msgstr "%(value)s must be a decimal number."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "رقم عشري"
+msgstr "Decimal number"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid "%(value)s لها تنسيق غير صالح. يجب أن تكون بتنسيق [DD] [[HH:]MM:]ss[.uuuuuu]."
+msgstr "%(value)s has an invalid format. It must be in [DD] [[HH:]MM:]ss[.uuuuuu] format."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "المدة"
+msgstr "Duration"
+
+# Specialized fields
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "عنوان البريد الإلكتروني"
+msgstr "Email address"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "مسار الملف"
+msgstr "File path"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "%(value)s يجب أن تكون عدداً عشرياً."
+msgstr "%(value)s must be a float."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "رقم عشري"
+msgstr "Floating point number"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "%(value)s يجب أن تكون عدداً صحيحاً."
+msgstr "%(value)s must be an integer."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "عدد صحيح"
+msgstr "Integer"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "عدد صحيح كبير (8 بايت)"
+msgstr "Big integer (8 bytes)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "عدد صحيح صغير"
+msgstr "Small integer"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "عنوان IPv4"
+msgstr "IPv4 address"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "عنوان IP"
+msgstr "IP address"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "%(value)s يجب أن تكون إما None أو True أو False."
+msgstr "%(value)s must be either None, True, or False."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "منطقي (إما True أو False أو None)"
+msgstr "Boolean (Either True, False, or None)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "عدد صحيح موجب كبير"
+msgstr "Positive big integer"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "عدد صحيح موجب"
+msgstr "Positive integer"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "عدد صحيح موجب صغير"
+msgstr "Positive small integer"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (حتى %(max_length)s)"
+msgstr "Slug (up to %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "نص"
+msgstr "Text"
+
+# Fixed incomplete time format string
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid "%(value)s لها تنسيق غير صالح. يجب أن تكون بتنسيق HH:MM[:ss[.uuuuuu"
+msgstr "%(value)s has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format."

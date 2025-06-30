@@ -1,7 +1,6 @@
-{% extends 'tasks/base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}تعديل المهمة{% endblock %}
+{% block title %}{% trans "تعديل المهمة" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/edit_task.css' %}">
@@ -9,12 +8,12 @@
 
 {% block content %}
 <section class="task-form-container">
-    <h2>✏️ تعديل المهمة</h2>
+    <h2>✏️ {% trans "تعديل المهمة" %}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn">تحديث</button>
+        <button type="submit" class="btn">{% trans "تحديث" %}</button>
     </form>
-    <a href="{% url 'tasks:task_list' %}" class="back-link">← العودة</a>
+    <a href="{% url 'tasks:task_list' %}" class="back-link">← {% trans "العودة" %}</a>
 </section>
 {% endblock %}

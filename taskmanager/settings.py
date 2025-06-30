@@ -1,7 +1,6 @@
-# taskmanager/settings.py
-
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # المسار الأساسي للمشروع
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,24 +33,24 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # الوسطاء (Middleware)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',  # مهم للإدارة
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # مهم للإدارة
-    'django.contrib.messages.middleware.MessageMiddleware',  # مهم للإدارة
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # تأكد من وجود هذا السطر
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# التوجيه الجذري
+# ملف روابط المشروع
 ROOT_URLCONF = 'taskmanager.urls'
 
 # إعدادات القوالب
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-                'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # مجلد القوالب الرئيسي
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -63,10 +62,10 @@ TEMPLATES = [
     },
 ]
 
-# WSGI
+# تطبيق WSGI
 WSGI_APPLICATION = 'taskmanager.wsgi.application'
 
-# قاعدة البيانات
+# إعدادات قاعدة البيانات
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,21 +82,41 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # اللغة والمنطقة الزمنية
-LANGUAGE_CODE = 'ar'
+LANGUAGE_CODE = 'ar'  # يجب تغييره ليكون قابلًا للتغيير
 TIME_ZONE = 'Asia/Riyadh'
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
 
-# الملفات الثابتة
+# دعم الترجمة والتنسيقات المحلية
+USE_I18N = True
+USE_L10N = True  # لتفعيل التنسيق المحلي (التواريخ، الأرقام، إلخ)
+
+# تحديد اسم ملف تعريف الارتباط للغة
+LANGUAGE_COOKIE_NAME = 'django_language'
+
+# اللغات المتاحة
+LANGUAGES = [
+    ('ar', _('Arabic')),
+    ('en', _('English')),
+]
+
+LANGUAGE_CODE = 'ar'  # أو 'en' حسب الحاجة
+
+# موقع ملفات الترجمة
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+# المسارات الثابتة والوسائط
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# ملفات الوسائط
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# الإعداد الافتراضي للحقل
+# الإعداد الافتراضي لمعرف الحقول
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# عند تسجيل الخروج
 LOGOUT_REDIRECT_URL = '/'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 3600  # (مثال: الوقت بالثواني قبل انتهاء الجلسة)

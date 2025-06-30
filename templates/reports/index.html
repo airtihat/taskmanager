@@ -1,87 +1,73 @@
+{% load static i18n %}
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <title>📊 تقرير المهام</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #f8f9fa;
-            padding: 30px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 28px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 15px auto;
-            border-radius: 12px;
-            width: 300px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .number {
-            font-size: 32px;
-            color: #007bff;
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>{% trans "إحصائيات المهام" %}</title>
+
+  <!-- روابط ملفات التنسيق -->
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reports.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <h1>📊 إحصائيات المهام</h1>
+  {% include 'core/header.html' %}
 
-    <div class="card">
-        كل المهام
-        <div class="number">{{ total_tasks }}</div>
+  <main class="report-container">
+    <h2 class="report-title"><i class="fas fa-chart-bar"></i> {% trans "إحصائيات المهام" %}</h2>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3>{% trans "كل المهام" %}</h3>
+        <p class="stat-number">{{ total_tasks }}</p>
+      </div>
+      <div class="stat-box">
+        <h3>{% trans "المكتملة" %}</h3>
+        <p class="stat-number">{{ completed_tasks }}</p>
+      </div>
+      <div class="stat-box">
+        <h3>{% trans "الغير مكتملة" %}</h3>
+        <p class="stat-number">{{ pending_tasks }}</p>
+      </div>
+      <div class="stat-box">
+        <h3>{% trans "المتأخرة" %}</h3>
+        <p class="stat-number">{{ overdue_tasks }}</p>
+      </div>
     </div>
 
-    <div class="card">
-        المكتملة
-        <div class="number">{{ completed_tasks }}</div>
+    <div class="chart-placeholder">
+      <canvas id="reportChart"></canvas>
     </div>
+  </main>
 
-    <div class="card">
-        الغير مكتملة
-        <div class="number">{{ pending_tasks }}</div>
-    </div>
+  {% include 'core/footer.html' %}
 
-    <div class="card">
-        المتأخرة
-        <div class="number">{{ overdue_tasks }}</div>
-    </div>
-
-    <canvas id="taskChart" width="400" height="300"></canvas>
-
-    <script>
-        const chartData = JSON.parse(`{{ chart_data|safe }}`);  // ✅ هذا هو التعديل الأساسي
-
-        const ctx = document.getElementById('taskChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['كل المهام', 'المكتملة', 'غير المكتملة', 'المتأخرة'],
-                datasets: [{
-                    label: 'عدد المهام',
-                    data: [
-                        chartData.total,
-                        chartData.completed,
-                        chartData.pending,
-                        chartData.overdue
-                    ],
-                    backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } }
-            }
-        });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const data = JSON.parse('{{ chart_data|safe }}');
+    const ctx = document.getElementById('reportChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [{% trans "كل المهام" %}, {% trans "المكتملة" %}, {% trans "الغير مكتملة" %}, {% trans "المتأخرة" %}],
+        datasets: [{
+          label: '{% trans "عدد المهام" %}',
+          data: [data.total, data.completed, data.pending, data.overdue],
+          backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>

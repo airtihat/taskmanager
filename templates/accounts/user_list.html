@@ -1,15 +1,54 @@
+{% load static i18n %}
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>قائمة المستخدمين</title>
+  <title>{% trans "قائمة المهام" %}</title>
+  <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <h1>قائمة المستخدمين</h1>
-  <ul>
-    {% for user in users %}
-      <li>{{ user.username }} - {{ user.email }}</li>
-    {% endfor %}
-  </ul>
+
+  <!-- ✅ الهيدر -->
+  {% include 'core/header.html' %}
+
+  <!-- ✅ المحتوى الرئيسي -->
+  <div class="container">
+
+    <!-- العنوان مع الزر -->
+    <div class="task-header">
+      <h2 class="task-list-title"><i class="fas fa-clipboard-list"></i> {% trans "قائمة المهام" %}</h2>
+      <a href="{% url 'tasks:task_create' %}" class="btn-create-task">
+        <i class="fas fa-plus"></i> {% trans "مهمة جديدة" %}
+      </a>
+    </div>
+
+    <!-- قائمة المهام -->
+    <ul class="task-list">
+      {% for task in tasks %}
+      <li class="task-item">
+        <div class="task-content">
+          <strong class="task-title">{{ task.title }}</strong>
+          <div class="task-actions">
+            <a href="{% url 'tasks:task_edit' task.id %}" class="edit-btn">{% trans "تعديل" %}</a>
+            <form method="post" action="{% url 'tasks:task_delete' task.id %}" class="delete-form">
+              {% csrf_token %}
+              <button type="submit" class="delete-btn">{% trans "حذف" %}</button>
+            </form>
+          </div>
+        </div>
+      </li>
+      {% empty %}
+      <li class="task-empty">{% trans "لا توجد مهام حالياً." %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- ✅ الفوتر -->
+  {% include 'core/footer.html' %}
+
 </body>
 </html>

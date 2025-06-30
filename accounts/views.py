@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import CustomUser
-
+from django.contrib.admin.views.decorators import staff_member_required
 from .forms import CustomUserCreationForm
 
 
@@ -78,6 +78,12 @@ def profile_view(request):
     return render(request, 'accounts/profile.html', {
         'user': request.user
     })
+
+@staff_member_required
+def user_list(request):
+    users = CustomUser.objects.all()
+    return render(request, 'accounts/user_list.html', {'users': users})
+
 
 def user_list(request):
     users = CustomUser.objects.all()

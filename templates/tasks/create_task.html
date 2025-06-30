@@ -1,7 +1,6 @@
-{% extends 'tasks/base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}إنشاء مهمة جديدة{% endblock %}
+{% block title %}{% trans "إنشاء مهمة جديدة" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/create_task.css' %}">
@@ -9,12 +8,12 @@
 
 {% block content %}
 <section class="task-form-container">
-    <h2>➕ مهمة جديدة</h2>
+    <h2>➕ {% trans "مهمة جديدة" %}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn">حفظ المهمة</button>
+        <button type="submit" class="btn">{% trans "حفظ المهمة" %}</button>
     </form>
-    <a href="{% url 'tasks:task_list' %}" class="back-link">← العودة للقائمة</a>
+    <a href="{% url 'tasks:task_list' %}" class="back-link">← {% trans "العودة للقائمة" %}</a>
 </section>
 {% endblock %}

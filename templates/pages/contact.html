@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>اتصل بنا</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .home-box {
+      border: 2px solid #4CAF50;
+      padding: 10px 20px;
+      margin: 0 auto 30px;
+      width: fit-content;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+    }
+
+    .home-box a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1, h2 {
+      color: #222;
+    }
+
+    .contact-section {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    ul {
+      padding-right: 20px;
+    }
+
+    strong {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر العودة للرئيسية -->
+  <div class="home-box">
+    <a href="{% url 'home' %}">الرئيسية</a>
+  </div>
+
+  <div class="contact-section">
+    <h1>اتصل بنا</h1>
+    <p>نحن هنا لمساعدتك والإجابة على استفساراتك. يمكنك التواصل معنا من خلال إحدى الوسائل التالية:</p>
+
+    <h2>معلومات التواصل</h2>
+    <ul>
+      <li><strong>البريد الإلكتروني:</strong> support@example.com</li>
+      <li><strong>رقم الهاتف:</strong> +966 55 555 5555</li>
+      <li><strong>العنوان:</strong> الرياض، المملكة العربية السعودية</li>
+    </ul>
+
+    <h2>أوقات العمل</h2>
+    <p>من الأحد إلى الخميس: 9:00 صباحًا – 5:00 مساءً</p>
+    <p>الجمعة والسبت: إجازة</p>
+
+    <h2>نموذج المراسلة</h2>
+    <p>يمكنك أيضًا استخدام نموذج التواصل في الموقع لطرح سؤالك وسنرد عليك في أقرب وقت ممكن.</p>
+  </div>
+
+</body>
+</html>

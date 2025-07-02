@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+  <h3 class="mb-4">📥 طلبات الانضمام المعلقة</h3>
+
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>البريد الإلكتروني</th>
+            <th>اسم المجموعة</th>
+            <th>اسم المستخدم</th>
+            <th>تاريخ الإنشاء</th>
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for invite in invites %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ invite.email }}</td>
+              <td>{{ invite.group_name }}</td>
+              <td>{{ invite.user.username }}</td>
+              <td>{{ invite.created_at|date:"Y-m-d H:i" }}</td>
+              <td>
+                <a href="{% url 'accounts:approve_invite' invite.id %}" class="btn btn-success btn-sm">
+                  ✅ موافقة
+                </a>
+              </td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="6">لا توجد طلبات جديدة حاليًا.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

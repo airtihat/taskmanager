@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h3 class="mb-4">📋 قائمة الدعوات المرسلة</h3>
+
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>البريد الإلكتروني</th>
+            <th>اسم المجموعة</th>
+            <th>المرسل</th>
+            <th>تاريخ الدعوة</th>
+            <th>الحالة</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for invite in invites %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ invite.email }}</td>
+              <td>{{ invite.group_name }}</td>
+              <td>{{ invite.invited_by }}</td>
+              <td>{{ invite.created_at|date:"Y-m-d H:i" }}</td>
+              <td>
+                {% if invite.approved %}
+                  <span class="badge bg-success">موافق عليه</span>
+                {% else %}
+                  <span class="badge bg-warning text-dark">بانتظار الموافقة</span>
+                {% endif %}
+              </td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="6">لا توجد دعوات حالياً.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

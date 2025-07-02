@@ -6,13 +6,19 @@
   <meta charset="UTF-8">
   <title>{% trans "لوحة التحكم" %} | {% trans "نظام المهام" %}</title>
   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-  <link rel="stylesheet" href="{% static 'css/header.css' %}">
-  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* نفس التنسيق السابق */
+  </style>
 </head>
 <body>
 
-  {% include 'core/header.html' %}
+  <div class="home-box">
+    <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+      {% trans "الرئيسية" %}
+    </a>
+  </div>
 
   <div class="dashboard-container">
 
@@ -28,20 +34,57 @@
         <a href="{% url 'tasks:task_create' %}" class="btn btn-success">{% trans "مهمة جديدة" %}</a>
       </div>
 
-      <!-- بطاقة الإعدادات -->
+      <!-- بطاقة المستخدمين -->
       <div class="dashboard-card">
-        <h3>⚙️ {% trans "الإعدادات" %}</h3>
-        <p>{% trans "تعديل الملف الشخصي وتسجيل الخروج." %}</p>
-        <a href="{% url 'accounts:profile' %}" class="btn btn-warning">{% trans "الملف الشخصي" %}</a>
-        <a href="{% url 'logout' %}" class="btn btn-danger">{% trans "تسجيل الخروج" %}</a>
+        <h3>👥 {% trans "إدارة المستخدمين" %}</h3>
+        <p>{% trans "إدارة المستخدمين المعتمدين والغير معتمدين." %}</p>
+        <a href="{% url 'accounts:manage_users' %}" class="btn btn-primary">{% trans "إدارة المستخدمين" %}</a>
+        <a href="{% url 'accounts:user_list' %}" class="btn btn-warning">{% trans "قائمة المستخدمين" %}</a>
+      </div>
+
+      <!-- بطاقة الموافقات المعلقة -->
+      <div class="dashboard-card">
+        <h3>⏳ {% trans "الموافقات المعلقة" %}</h3>
+        <p>{% trans "الموافقات التي لم يتم الموافقة عليها بعد." %}</p>
+        <a href="{% url 'accounts:pending_approvals' %}" class="btn btn-warning">{% trans "الموافقات المعلقة" %}</a>
+      </div>
+
+      <!-- بطاقة التقارير -->
+      <div class="dashboard-card">
+        <h3>📊 {% trans "التقارير" %}</h3>
+        <p>{% trans "عرض تقارير المهام والإحصائيات." %}</p>
+        <a href="{% url 'accounts:reports' %}" class="btn btn-success">{% trans "التقارير" %}</a>
+      </div>
+
+      <!-- بطاقة الدعوات -->
+      <div class="dashboard-card">
+        <h3>📩 {% trans "إرسال دعوة" %}</h3>
+        <p>{% trans "إرسال دعوات للمستخدمين الجدد." %}</p>
+        <a href="{% url 'accounts:send_invite' %}" class="btn btn-primary">{% trans "إرسال دعوة" %}</a>
+      </div>
+
+      <!-- بطاقة التذكيرات -->
+      <div class="dashboard-card">
+        <h3>⏰ {% trans "إرسال تذكير" %}</h3>
+        <p>{% trans "إرسال تذكيرات للمهام والأنشطة." %}</p>
+        <a href="{% url 'accounts:send_reminder' %}" class="btn btn-success">{% trans "إرسال تذكير" %}</a>
+      </div>
+
+      <!-- بطاقة إعدادات النظام -->
+      <div class="dashboard-card">
+        <h3>⚙️ {% trans "إعدادات النظام" %}</h3>
+        <p>{% trans "إدارة إعدادات النظام." %}</p>
+        <a href="{% url 'accounts:system_settings' %}" class="btn btn-warning">{% trans "إعدادات النظام" %}</a>
       </div>
 
     </div>
   </div>
 
-  {% include 'core/footer.html' %}
+  <script>
+    function confirmLogout() {
+      return confirm("هل أنت متأكد أنك تريد تسجيل الخروج؟");
+    }
+  </script>
 
 </body>
 </html>
-
-

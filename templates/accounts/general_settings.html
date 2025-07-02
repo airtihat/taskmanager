@@ -1,0 +1,134 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "إعدادات النظام العامة" %}</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .home-box {
+      border: 2px solid #4CAF50;
+      padding: 10px 20px;
+      margin: 0 auto 30px;
+      width: fit-content;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+    }
+
+    .home-box a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1, h2 {
+      color: #222;
+    }
+
+    .settings-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .settings-option {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .settings-option h3 {
+      margin-bottom: 10px;
+    }
+
+    .settings-option p {
+      color: #666;
+    }
+
+    .settings-option .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+    }
+
+    .settings-option .btn:hover {
+      opacity: 0.9;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر العودة للرئيسية -->
+  <div class="home-box">
+    <a href="{% url 'home' %}">{% trans "الرئيسية" %}</a>
+  </div>
+
+  <div class="settings-container">
+    <h1>{% trans "إعدادات النظام العامة" %}</h1>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="settings-option">
+        <h3>{% trans "إعدادات اللغة" %}</h3>
+        <p>{% trans "اختَر اللغة المفضلة لديك لتغيير واجهة النظام." %}</p>
+        <label for="language">{% trans "اللغة" %}</label>
+        <select name="language" id="language" class="form-control">
+          <option value="ar" {% if request.LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
+          <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+        </select>
+      </div>
+
+      <div class="settings-option">
+        <h3>{% trans "إعدادات المنطقة الزمنية" %}</h3>
+        <p>{% trans "اختَر المنطقة الزمنية المناسبة." %}</p>
+        <label for="timezone">{% trans "المنطقة الزمنية" %}</label>
+        <select name="timezone" id="timezone" class="form-control">
+          <option value="Asia/Riyadh" {% if request.timezone == 'Asia/Riyadh' %}selected{% endif %}>الرياض</option>
+          <option value="UTC" {% if request.timezone == 'UTC' %}selected{% endif %}>UTC</option>
+          <option value="Europe/London" {% if request.timezone == 'Europe/London' %}selected{% endif %}>لندن</option>
+        </select>
+      </div>
+
+      <div class="settings-option">
+        <h3>{% trans "إعدادات التاريخ والوقت" %}</h3>
+        <p>{% trans "اختَر تنسيق التاريخ والوقت الذي تفضله." %}</p>
+        <label for="date_format">{% trans "تنسيق التاريخ" %}</label>
+        <select name="date_format" id="date_format" class="form-control">
+          <option value="Y-m-d" {% if request.date_format == 'Y-m-d' %}selected{% endif %}>2025-07-02</option>
+          <option value="d/m/Y" {% if request.date_format == 'd/m/Y' %}selected{% endif %}>02/07/2025</option>
+          <option value="m/d/Y" {% if request.date_format == 'm/d/Y' %}selected{% endif %}>07/02/2025</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success">{% trans "حفظ التغييرات" %}</button>
+    </form>
+
+  </div>
+
+</body>
+</html>

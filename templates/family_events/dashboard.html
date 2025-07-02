@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 لوحة مناسبات العائلة</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px;
+      direction: rtl;
+      text-align: right;
+      color: #333;
+    }
+    h1 {
+      color: #222;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 لوحة المناسبات العائلية</h1>
+  <p>قم بإضافة وتحديث مناسبات الأسرة بسهولة.</p>
+
+  <a href="/">🏠 العودة للرئيسية</a>
+
+  <br><br>
+
+  {% if not request.user.is_authenticated %}
+    <a href="{% url 'login' %}?next=/family/notes/" class="btn">
+      🔒 تسجيل الدخول لمشاهدة ملاحظات الأولاد
+    </a>
+  {% else %}
+    <a href="{% url 'family_notes:note_list' %}" class="btn btn-success">
+      📒 الانتقال إلى ملاحظات الأولاد
+    </a>
+  {% endif %}
+
+</body>
+</html>

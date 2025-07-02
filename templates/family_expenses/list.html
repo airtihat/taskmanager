@@ -1,0 +1,8 @@
+from django.shortcuts import render
+from .models import Expense
+from django.contrib.auth.decorators import login_required
+
+def expense_list(request):
+    # جلب جميع المصروفات
+    expenses = Expense.objects.all()
+    return render(request, 'family_expenses/list.html', {'expenses': expenses})

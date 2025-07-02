@@ -1,9 +1,16 @@
 {% load i18n %}
 
 {% block content %}
-<h2>📧 {% trans "إرسال تذكير إلى بريدك" %}</h2>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn">{% trans "إرسال التذكير الآن" %}</button>
-</form>
+<div class="reminder-container">
+    <h2>📧 {% trans "إرسال تذكير إلى بريدك" %}</h2>
+
+    <!-- نموذج إرسال التذكير -->
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- زر إرسال التذكير -->
+        <button type="submit" class="btn btn-primary">{% trans "إرسال التذكير الآن" %}</button>
+    </form>
+</div>
+
 {% endblock %}

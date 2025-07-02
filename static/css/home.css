@@ -1,12 +1,25 @@
 body {
   font-family: 'Tajawal', sans-serif;
   background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* جعل ارتفاع الصفحة 100% */
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%; /* التأكد من أن العرض الكامل يتم ملؤه */
+  flex: 1; /* يسمح للمحتوى بأن يتمدد ليملأ المساحة المتاحة */
 }
 
 .card {
   border-radius: 12px;
   transition: 0.3s;
   background-color: #fff;
+  width: 100%; /* التأكد من أن البطاقة تملأ العرض */
+  box-sizing: border-box; /* التأكد من أن البطاقات تملأ المساحة بدون تجاوز */
 }
 
 .card:hover {
@@ -16,10 +29,28 @@ body {
 
 h1 {
   color: #2c5030;
+  font-size: 2rem; /* لتكبير النص */
 }
 
 footer {
   font-size: 14px;
   color: #777;
   margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box; /* التأكد من أن الفوتر يلتزم بالحجم */
+}
+
+/* تحسين المساحة بين العناصر */
+.main-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

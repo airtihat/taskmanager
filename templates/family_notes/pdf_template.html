@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: "Arial", sans-serif; direction: rtl; }
+    h1 { text-align: center; }
+    .note { margin: 10px 0; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <h1>📄 تقرير ملاحظات الأولاد</h1>
+  {% for note in notes %}
+    <div class="note">
+      <strong>{{ note.title }}</strong><br>
+      {{ note.content }}
+    </div>
+  {% endfor %}
+</body>
+</html>

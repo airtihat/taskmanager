@@ -5,46 +5,111 @@
 <head>
   <meta charset="UTF-8">
   <title>{% trans "قائمة المهام" %}</title>
-
-  <!-- ربط ملف التنسيق الخارجي -->
   <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
-  <link rel="stylesheet" href="{% static 'css/header.css' %}">
-  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    /* صندوق الرئيسية */
+    .home-box {
+      border: 2px solid #4CAF50;
+      padding: 10px 20px;
+      margin: 20px auto;
+      width: fit-content;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+    }
+
+    /* الحاوية الرئيسية للمهام */
+    .task-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* عنوان الصفحة */
+    .task-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* عنصر مهمة واحدة */
+    .task-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .task-item:last-child {
+      border-bottom: none;
+    }
+
+    /* عنوان المهمة */
+    .task-title {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* وصف المهمة */
+    .task-desc {
+      color: #666;
+      margin-top: 5px;
+    }
+
+    /* زر */
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- الهيدر -->
-  {% include 'core/header.html' %}
+  <!-- زر العودة للرئيسية -->
+  <div class="home-box">
+    <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+      {% trans "الرئيسية" %}
+    </a>
+  </div>
 
-  <!-- المحتوى -->
-  <main>
-    <section class="task-list-container">
-      <h2 class="task-list-title">--- <i class="fas fa-clipboard-list"></i> {% trans "قائمة المهام" %} ---</h2>
+  <!-- حاوية المهام -->
+  <div class="task-container">
+    <h2>{% trans "قائمة المهام" %}</h2>
 
-      <ul class="task-list">
-        {% for task in tasks %}
-        <li class="task-item">
-          <div class="task-content">
-            <div class="task-title">{{ task.title }}</div>
-            <div class="task-actions">
-              <a href="{% url 'tasks:task_edit' task.id %}" class="edit-btn">{% trans "تعديل" %}</a>
-              <form method="post" action="{% url 'tasks:task_delete' task.id %}" class="delete-form">
-                {% csrf_token %}
-                <button type="submit" class="delete-btn">{% trans "حذف" %}</button>
-              </form>
-            </div>
-          </div>
-        </li>
-        {% empty %}
-        <li class="task-empty">{% trans "لا توجد مهام حالياً." %}</li>
-        {% endfor %}
-      </ul>
-    </section>
-  </main>
-
-  <!-- الفوتر -->
-  {% include 'core/footer.html' %}
+    {% if tasks %}
+      {% for task in tasks %}
+        <div class="task-item">
+          <div class="task-title">{{ task.title }}</div>
+          <div class="task-desc">{{ task.description|default:"لا يوجد وصف" }}</div>
+          <a href="{% url 'tasks:task_detail' task.id %}" class="btn">{% trans "عرض المهمة" %}</a>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="text-align: center; color: #777;">{% trans "لا توجد مهام حالياً." %}</p>
+    {% endif %}
+  </div>
 
 </body>
 </html>

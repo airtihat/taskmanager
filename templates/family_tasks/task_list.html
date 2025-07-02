@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>📋 قائمة المهام العائلية</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Arial', sans-serif;
+      padding: 40px;
+      color: #333;
+    }
+    .task-card {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>📋 قائمة المهام العائلية</h2>
+      <a href="/family/dashboard/" class="btn btn-secondary">🏠 لوحة العائلة</a>
+    </div>
+
+    <a href="{% url 'family_tasks:add' %}" class="btn btn-primary mb-4">
+      ➕ إضافة مهمة
+    </a>
+
+    {% for task in tasks %}
+      <div class="task-card">
+        <h5>{{ task.title }}</h5>
+        <p>{{ task.description }}</p>
+        <p class="text-muted">تاريخ التنفيذ: {{ task.due_date }}</p>
+      </div>
+    {% empty %}
+      <p class="text-muted">لا توجد مهام حاليًا.</p>
+    {% endfor %}
+
+  </div>
+
+</body>
+</html>

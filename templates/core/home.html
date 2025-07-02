@@ -4,7 +4,6 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-
   <!-- ملفات التنسيق -->
   <link rel="stylesheet" href="{% static 'css/header.css' %}">
   <link rel="stylesheet" href="{% static 'css/footer.css' %}">
@@ -24,38 +23,81 @@
     <h1 class="text-center mb-4">{% trans "مرحبًا بك في نظام إدارة المهام" %}</h1>
 
     <div class="row text-center">
+
+      <!-- المستخدمون -->
       <div class="col-md-3 mb-3">
-        <div class="card custom-card">
-          <h5>👤 {% trans "المستخدمون" %}</h5>
-          <p>{% trans "إدارة أدوار وصلاحيات المستخدمين" %}</p>
-        </div>
+        <a href="{% url 'accounts:dashboard' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>👤 {% trans "المستخدمون" %}</h5>
+            <p>{% trans "إدارة أدوار وصلاحيات المستخدمين" %}</p>
+          </div>
+        </a>
       </div>
+
+      <!-- المهام -->
       <div class="col-md-3 mb-3">
-        <div class="card custom-card">
-          <h5>📋 {% trans "المهام" %}</h5>
-          <p>{% trans "إنشاء وتتبع المهام" %}</p>
-        </div>
+        <a href="{% url 'tasks:task_list' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>📋 {% trans "المهام" %}</h5>
+            <p>{% trans "إنشاء وتتبع المهام" %}</p>
+          </div>
+        </a>
       </div>
+
+      <!-- التقارير -->
       <div class="col-md-3 mb-3">
-        <div class="card custom-card">
-          <h5>📈 {% trans "التقارير" %}</h5>
-          <p>{% trans "تحليل الأداء والتقدم" %}</p>
-        </div>
+        <a href="{% url 'reports:report_dashboard' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>📈 {% trans "التقارير" %}</h5>
+            <p>{% trans "تحليل الأداء والتقدم" %}</p>
+          </div>
+        </a>
       </div>
+
+      <!-- الإعدادات -->
       <div class="col-md-3 mb-3">
-        <div class="card custom-card">
-          <h5>⚙️ {% trans "الإعدادات" %}</h5>
-          <p>{% trans "تكوين تفضيلات النظام" %}</p>
-        </div>
+        <a href="{% url 'accounts:profile' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>⚙️ {% trans "الإعدادات" %}</h5>
+            <p>{% trans "تكوين تفضيلات النظام" %}</p>
+          </div>
+        </a>
       </div>
+
+      <!-- إدارة العائلة -->
+      <div class="col-md-4 mb-3">
+        <a href="{% url 'family:dashboard' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>👪 {% trans "إدارة العائلة" %}</h5>
+            <p>{% trans "تنظيم المهام والمصروف والملاحظات" %}</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- التقويم الهجري -->
+      <div class="col-md-4 mb-3">
+        <a href="{% url 'calendarhijri:dashboard' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>📅 {% trans "التقويم الهجري" %}</h5>
+            <p>{% trans "مناسبات الأسرة والتذكيرات الدينية" %}</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- الصدقة الجماعية -->
+      <div class="col-md-4 mb-3">
+        <a href="{% url 'sadaqa:dashboard' %}" class="text-decoration-none text-dark">
+          <div class="card custom-card h-100">
+            <h5>💝 {% trans "الوقف والصدقة" %}</h5>
+            <p>{% trans "متابعة التبرعات والمشاريع الخيرية" %}</p>
+          </div>
+        </a>
+      </div>
+<a href="{% url 'family:dashboard' %}" class="text-decoration-none text-dark">...</a>
+<a href="{% url 'accounts:dashboard' %}" class="text-decoration-none text-dark">...</a>
+
     </div>
   </main>
-
-  <div class="text-center my-4">
-    <a href="{% url 'logout' %}" class="btn btn-danger">{% trans "تسجيل الخروج" %}</a>
-    <a href="{% url 'tasks:task_list' %}">{% trans "المهام" %}</a>
-    <a href="{% url 'management:dashboard' %}">{% trans "التقارير" %}</a>
-  </div>
 
   {% include 'core/footer.html' %}
 

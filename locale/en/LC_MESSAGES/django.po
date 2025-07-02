@@ -439,3 +439,80 @@ msgstr "Slug (حتى %(max_length)s)"
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
 msgid "Text"
 msgstr "نص"
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ar\n"
+
+#: templates/family/dashboard.html:10
+msgid "Family Dashboard"
+msgstr "لوحة إدارة العائلة"
+
+#: templates/family/dashboard.html:15
+msgid "Manage tasks, expenses, notes, and family events."
+msgstr "إدارة المهام، المصروف، الملاحظات، والمناسبات العائلية."
+
+#: templates/family/dashboard.html:20
+msgid "Tasks"
+msgstr "المهام"
+
+#: templates/family/dashboard.html:21
+msgid "Organize daily family tasks"
+msgstr "تنظيم مهام الأسرة اليومية"
+
+#: templates/family/dashboard.html:27
+msgid "Expenses"
+msgstr "المصروف"
+
+#: templates/family/dashboard.html:28
+msgid "Track family spending"
+msgstr "تتبع مصروفات الأسرة"
+
+#: templates/family/dashboard.html:34
+msgid "Events"
+msgstr "المناسبات"
+
+#: templates/family/dashboard.html:35
+msgid "Plan and manage family events"
+msgstr "تخطيط وتنظيم مناسبات الأسرة"
+
+#: templates/family/dashboard.html:41
+msgid "Children Notes"
+msgstr "ملاحظات الأولاد"
+
+#: templates/family/dashboard.html:42
+msgid "Record educational and behavioral notes"
+msgstr "تسجيل الملاحظات التعليمية والسلوكية"
+
+#: templates/includes/header.html:10
+msgid "Home"
+msgstr "الرئيسية"
+
+#: templates/includes/header.html:14
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: templates/includes/header.html:16
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: templates/includes/header.html:18
+msgid "My Account"
+msgstr "حسابي"
+
+#: templates/accounts/login.html:8
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: templates/accounts/login.html:12
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: templates/accounts/login.html:16
+msgid "Submit"
+msgstr "دخول"
+
+#: templates/includes/header.html:20
+msgid "Switch Language"
+msgstr "تغيير اللغة"

@@ -1,5 +1,48 @@
 {% load i18n %}
 
-<footer class="bg-light text-center py-3 mt-5 border-top">
-  <p class="mb-0">{% trans "© 2025 نظام إدارة المهام" %}</p>
+<footer class="bg-dark text-white py-4 mt-auto">
+  <div class="container">
+    <div class="row">
+      <!-- معلومات حقوق النشر -->
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <p class="mb-0">
+          <i class="far fa-copyright me-2"></i>
+          {% now "Y" %} {% trans "نظام إدارة المهام. جميع الحقوق محفوظة." %}
+        </p>
+      </div>
+      
+      <!-- روابط إضافية -->
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center justify-content-md-end gap-4">
+          <a href="{% url 'pages:about' %}" class="text-white text-decoration-none hover-primary">
+            <i class="fas fa-info-circle me-1"></i>
+            {% trans "عن النظام" %}
+          </a>
+          
+          <a href="{% url 'pages:privacy' %}" class="text-white text-decoration-none hover-primary">
+            <i class="fas fa-shield-alt me-1"></i>
+            {% trans "الخصوصية" %}
+          </a>
+          
+          <a href="{% url 'pages:contact' %}" class="text-white text-decoration-none hover-primary">
+            <i class="fas fa-envelope me-1"></i>
+            {% trans "اتصل بنا" %}
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- شهادة التطوير (اختياري) -->
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <small class="text-muted">
+          {% trans "تم التطوير بواسطة" %} 
+          <a href="https://example.com" target="_blank" rel="noopener" class="text-reset">
+            {% trans "فريق التطوير" %}
+          </a>
+          {% trans "الإصدار" %} 1.0.0
+        </small>
+      </div>
+    </div>
+  </div>
 </footer>

@@ -25,6 +25,14 @@ INSTALLED_APPS = [
     'tasks',
     'reports',
     'management',
+    'pages',
+    'family',
+    'calendarhijri',
+    'sadaqa',
+    'family_tasks',
+    'family_expenses',
+    'family_events',
+    'family_notes',
 ]
 
 # نموذج المستخدم المخصص
@@ -94,8 +102,8 @@ LANGUAGE_COOKIE_NAME = 'django_language'
 
 # اللغات المتاحة
 LANGUAGES = [
-    ('ar', _('Arabic')),
-    ('en', _('English')),
+    ('ar', 'العربية'),  # ❌ لا داعي لـ gettext_lazy هنا
+    ('en', 'English'),
 ]
 
 LANGUAGE_CODE = 'ar'  # أو 'en' حسب الحاجة
@@ -117,6 +125,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # عند تسجيل الخروج
 LOGOUT_REDIRECT_URL = '/'
+
+# الإعدادات العامة
+# عند محاولة الوصول لصفحة تتطلب تسجيل دخول
+LOGIN_URL = '/accounts/login/'
+
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 3600  # (مثال: الوقت بالثواني قبل انتهاء الجلسة)

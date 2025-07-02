@@ -1,9 +1,33 @@
+/* الهيدر */
 header {
-  text-align: center;  /* ❌ احذفه أو بدّله */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  background-color: #2e2e2e;
-  color: white;
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* لضمان ظهوره فوق المحتوى */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header .logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
 }

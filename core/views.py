@@ -7,6 +7,9 @@ def home_page(request):
     print("✅ تم استدعاء الصفحة الرئيسية")
     return render(request, 'core/home.html')  # قالب عام في templates/home.html
 
+def home_view(request):
+    return render(request, 'core/home.html')
+
 # ✅ لوحة تحكم المستخدم (تحتاج تسجيل دخول)
 @login_required
 def user_dashboard(request):

@@ -1,54 +1,65 @@
 {% load static i18n %}
 
-<header class="bg-dark text-white p-3 shadow-sm">
-  <div class="container d-flex justify-content-between align-items-center">
-    
-    <!-- عنوان النظام -->
-    <div class="d-flex align-items-center">
-      <i class="fas fa-tasks me-2"></i>
-      <h1 class="h5 m-0">{% trans "نظام إدارة المهام" %}</h1>
+<header class="bg-dark text-white p-3 shadow-sm sticky-top">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <!-- الشعار أو اسم الموقع -->
+      <div class="d-flex align-items-center mb-2 mb-md-0">
+        <a href="{% url 'home' %}" class="text-white text-decoration-none fw-bold">
+          <i class="fas fa-home me-2"></i>
+          <span class="d-none d-sm-inline">{% trans "الرئيسية" %}</span>
+        </a>
+      </div>
+
+      <!-- منطقة التنقل الرئيسية -->
+      <nav class="d-flex align-items-center gap-3">
+        <!-- روابط المستخدم -->
+        <ul class="navbar-nav d-flex flex-row gap-3 mb-0">
+          {% if user.is_authenticated %}
+            <!-- رواقع للمستخدم المسجل -->
+            <li class="nav-item">
+              <form action="{% url 'logout' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-white text-decoration-none p-0 hover-primary">
+                  <i class="fas fa-sign-out-alt me-1"></i>
+                  <span class="d-none d-md-inline">{% trans "تسجيل الخروج" %}</span>
+                </button>
+              </form>
+            </li>
+          {% else %}
+            <!-- روابط للزائر -->
+            <li class="nav-item">
+              <a href="{% url 'accounts:login' %}" class="text-white text-decoration-none hover-primary">
+                <i class="fas fa-sign-in-alt me-1"></i>
+                <span class="d-none d-md-inline">{% trans "تسجيل الدخول" %}</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'accounts:register' %}" class="text-white text-decoration-none hover-primary">
+                <i class="fas fa-user-plus me-1"></i>
+                <span class="d-none d-md-inline">{% trans "إنشاء حساب" %}</span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+
+        <!-- اختيار اللغة -->
+        <div class="language-selector ms-2">
+          <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <select name="language" onchange="this.form.submit()" 
+                    class="form-select form-select-sm bg-dark text-white border-light">
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                  {{ language.name_local }}
+                </option>
+              {% endfor %}
+            </select>
+          </form>
+        </div>
+      </nav>
     </div>
-
-    <!-- روابط التنقل -->
-    <nav class="d-flex align-items-center">
-      
-      <!-- الرئيسية -->
-      <a href="{% url 'home' %}" class="text-white me-3 text-decoration-none hover-primary">
-        <i class="fas fa-home me-1"></i> {% trans "الرئيسية" %}
-      </a>
-
-      <!-- المهام -->
-      <a href="{% url 'tasks:task_list' %}" class="text-white me-3 text-decoration-none hover-primary">
-        <i class="fas fa-list-check me-1"></i> {% trans "المهام" %}
-      </a>
-
-      <!-- التقارير -->
-      <a href="{% url 'reports:report_dashboard' %}" class="text-white me-3 text-decoration-none hover-primary">
-        <i class="fas fa-chart-column me-1"></i> {% trans "التقارير" %}
-      </a>
-
-      <!-- الإعدادات -->
-      <a href="{% url 'management:settings' %}" class="text-white me-3 text-decoration-none hover-primary">
-        <i class="fas fa-cog me-1"></i> {% trans "الإعدادات" %}
-      </a>
-
-      <!-- تسجيل الخروج -->
-      <form action="{% url 'logout' %}" method="post" class="d-inline me-3">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-link text-white text-decoration-none p-0 m-0 hover-primary">
-          <i class="fas fa-sign-out-alt me-1"></i> {% trans "الخروج" %}
-        </button>
-      </form>
-
-      <!-- ✅ اختيار اللغة -->
-<form action="{% url 'set_language' %}" method="post" class="d-inline ms-3">
-    {% csrf_token %}
-    <select name="language" onchange="this.form.submit()" class="form-select form-select-sm bg-dark text-white border-light">
-        <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
-        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-    </select>
-</form>
-
-    </nav>
   </div>
 </header>
